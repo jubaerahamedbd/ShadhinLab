@@ -13,6 +13,7 @@ const AddUser = ({ closeModal,setUsers,tabValue }) => {
         division: "",
         district: ""
     })
+   
     const { first_name, last_name, user_type, division, district } = user
     const [divisions, setDivisions] = useState(
         State.getStatesOfCountry("BD").filter((dataItem) => {

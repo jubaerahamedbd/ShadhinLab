@@ -37,14 +37,25 @@ const EditUser = () => {
         history.push("/")
     }
     useEffect(() => {
+
         LoadUser()
     }, [])
     const LoadUser = async () => {
         const result = await axios.get(`https://60f2479f6d44f300177885e6.mockapi.io/users/${id}`)
-        setUser(result.data)
 
+        var test = State.getStatesOfCountry("BD").filter((dataItem) => {
+            if (dataItem.name.includes(result.data.division)) return true;
+        })
+        console.log(test);
+        result.data.division += '-' + test[0].isoCode
+        setDistricts(
+            City.getCitiesOfState("BD", test[0].isoCode)
+        );
+        
+        setUser(result.data)
+        
     }
-    console.log(user.district);
+
     useEffect(() => {
         console.log(State.getStatesOfCountry("BD"));
     }, []);
