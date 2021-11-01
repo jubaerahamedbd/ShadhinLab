@@ -60,11 +60,13 @@ const EditUser = () => {
         console.log(State.getStatesOfCountry("BD"));
     }, []);
     return (
+        
         <div className="container">
+        <div className="update-User">
             <div className="col-md-8 updateUser ">
                 <div className="top">
-                    <h2>Update User</h2>
-                    <Link className="btn btn-outline-dark col-md-6" id="addUser" to="/">Back To User List</Link>
+                    <h2 className="page-title">Update User</h2>
+                    <Link className="back-button" id="addUser" to="/">Back To User List</Link>
                 </div>
 
                 <hr />
@@ -166,6 +168,7 @@ const EditUser = () => {
                 </form>
             </div>
 
+        </div>
         </div>
     )
 }

@@ -20,24 +20,27 @@ const User = () => {
         setUser(result.data)
     }
     return (
+        
         <div className="container ">
+        <div className="user-page">
             <div className="row">
                 <div className="col-md-8 detail" >
                     <div className="top">
-                        <h2> User ID: {id}</h2>
-                        <Link className="btn btn-outline-dark col-md-6 " id="addUser" to="/">Back To User List</Link>
+                        <h2 className="page-title"> User ID: {id}</h2>
+                        <Link className="back-button" id="addUser" to="/">Back To User List</Link>
                     </div>
                     <hr />
-                    <ul className="list-group my-2">
-                        <li className="list-group-item"><div className="row"><span className="col-6">First Name</span> <span className="col-6">{user.first_name}</span></div></li>
-                        <li className="list-group-item"><div className="row"><span className="col-6">Last Name</span> <span className="col-6">{user.last_name}</span></div></li>
-                        <li className="list-group-item"><div className="row"><span className="col-6">Division</span> <span className="col-6">{user.division}</span></div></li>
-                        <li className="list-group-item"><div className="row"><span className="col-6">Distict</span> <span className="col-6">{user.district}</span></div></li>
-                        <li className="list-group-item"><div className="row"><span className="col-6">User Type</span> <span className="col-6">{user.user_type}</span></div></li>
+                    <ul className="list-group my-2 list">
+                        <li className="list-group-item"><div className="row"><span className="span-title">First Name</span> <span className="span-title">{user.first_name}</span></div></li>
+                        <li className="list-group-item"><div className="row"><span className="span-title">Last Name</span> <span className="col-6">{user.last_name}</span></div></li>
+                        <li className="list-group-item"><div className="row"><span className="span-title">Division</span> <span className="col-6">{user.division}</span></div></li>
+                        <li className="list-group-item"><div className="row"><span className="span-title">Distict</span> <span className="col-6">{user.district}</span></div></li>
+                        <li className="list-group-item"><div className="row"><span className="span-title">User Type</span> <span className="col-6">{user.user_type}</span></div></li>
                     </ul>
-                    <Link className="btn btn-primary" to={`/user/edit/${id}`}> Update User</Link>
+                    <Link className="update-user" to={`/user/edit/${id}`}> Update User</Link>
                 </div>
             </div>
+        </div>
         </div>
 
     )

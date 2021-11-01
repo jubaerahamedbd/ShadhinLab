@@ -9,81 +9,338 @@
   background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
 }
 
-.top {
-  margin-top: 30px;
-  display: inline-flex;
-  width: 100%;
-  position: relative;
-}
-
-#addUser {
-  position: absolute;
-  right: 0;
-}
-
-.detail {
-  display: block;
-  margin: 0px auto;
-}
-
-.updateUser {
-  top: 0;
-  display: block;
-  margin: 20px auto;
-  position: relative;
-  padding-bottom: 70px;
-}
-
-.updatebtn {
-  position: absolute;
-  right: 0;
-  margin-top: 10px;
-}
-
-.AddUserLayout {
-  border-radius: 10px;
-  position: absolute;
-  width: 96%;
-  background-color: #b1b1b1;
-  top: 110px;
-  box-shadow: 10px 10px 8px 10px #888888;
+* {
+  box-sizing: border-box;
 }
 
 .container {
   position: relative;
+  width: 60%;
+  margin: 0px auto;
 }
-
-.mytabs {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.mytabs input[type="radio"] {
-  display: none;
-}
-
-.mytabs label {
-  padding: 15px;
-  background: #ffffff;
-  font-weight: bold;
+.home-container{
   
 }
-
-.mytabs .tab {
-  width: 100%;
-  padding: 0px 10px;
-  background: #E2E2E2;
-  order: 1;
+.AddUserLayout{
+  padding: 10px;
+  width: 90%;
+  background-color: pink;
+  position: absolute;
+  margin: 0px auto;
+  display: block;
+  top: 80px;
+  right: 45px;
+}
+.mytabs {}
+.tabhide{
   display: none;
 }
-
-.mytabs input[type='radio']:checked+label+.tab {
+.tabshow{
   display: block;
 }
-
-.mytabs input[type="radio"]:checked+label {
-  background: #fff;
+.button {
+  font-size: 16px;
+  margin-left: 1px;
+  width: 80px;
+  border: none;
+  padding: 5px 5px;
+  background-color: white;
 }
-.activeTab{
-  background: red;
+
+.admin {
+  font-size: 16px;
+ 
+  width: 80px;
+  border: none;
+  padding: 5px 5px;
+  background-color: gray;
+}
+
+.employee {
+  font-size: 16px;
+  margin-left: 1px;
+  width: 80px;
+  border: none;
+  padding: 5px 5px;
+  background-color: gray;
+}
+
+.table {
+  background-color: lightgrey;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table td, .table th {
+  padding: 12px 15px;
+  border: 1px solid gray;
+  text-align: center;
+  font-size: 16px;
+}
+
+.table th {
+  background-color: gray;
+  color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {}
+
+.table tbody tr td .btn-primary {
+  width: 50%;
+  text-decoration: none;
+  margin: 10px 5px;
+  background-color: lightgreen;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-align: center;
+  color: black;
+}
+
+.table tbody tr td .btn-warn {
+  width: 50%;
+  text-decoration: none;
+  margin: 10px 5px;
+  background-color: red;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+}
+input.form-control {
+  width: 50%;
+}
+select.form-control.form-control-sm {
+  width: 50%;
+}
+button.btn.btn-primary.updatebtn {
+  margin-top: 10px;
+}
+.page-title{
+  display: inline-block;
+}
+.back-button{
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+}
+.back-button-home{
+  position: absolute;
+  right: 0px;
+  top: 15px;
+  text-decoration: none;
+  background-color: lightgray;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+}
+.update-User{
+  padding: 25px;
+  width: 100%;
+  background-color: pink!important;
+  position: absolute;
+  margin: 0px auto;
+  display: block;
+  top: 100px;
+  
+}
+.user-page{
+  padding: 10px;
+  padding-bottom: 30px;
+  width: 100%;
+  background-color: pink!important;
+  position: absolute;
+  margin: 0px auto;
+  display: block;
+  top: 80px;
+  
+}
+.update-user{
+  margin-top: 10px;
+  text-decoration: none;
+  background-color: lightgray;
+  padding: 10px;
+  font-weight: bold;
+  color: black;
+}
+ul.list-group.my-2 {
+ 
+  position: relative;
+  list-style-type: none;
+  padding: 0px;
+}
+.span-title{
+  font-size: 18px;
+  width: 120px;
+  display: inline-block;
+  
+}
+button.btn.btn-primary.updatebtn {
+  margin-top: 10px;
+  border: none;
+  padding: 10px;
+}
+@media(max-width: 410px) {}
+
+/*Extra large Device*/
+
+@media (min-width: 1200px) {}
+
+/*large Device*/
+
+@media (min-width: 1040px) and (max-width: 1499px) {
+  .container {
+    width: 75%;
+  }
+}
+
+@media (min-width: 890px) and (max-width: 1040px) {
+  .container {
+    width: 75%;
+  }
+}
+
+/*Medium Device*/
+
+@media (min-width: 777px) and (max-width: 889px) {
+  .container {
+    width: 90%;
+  }
+}
+
+/* Small Device*/
+
+@media (min-width: 415px) and (max-width: 776px) {
+  .container {
+    width: 100%;
+  }
+  .AddUserLayout{
+    padding: 20px;
+    width: 80%;
+    background-color: pink;
+    position: absolute;
+    top: 80px;
+    right: 10%;
+  }
+  .table thead {
+    display: none;
+  }
+  .table, .table tbody, .table tr, .table td {
+    display: block;
+    width: 100%;
+  }
+  .table {
+    background-color: white;
+  }
+  .table tr {
+    background-color: lightgray;
+    margin-bottom: 15px;
+  }
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .table tbody tr td .btn-primary {
+    width: 50%;
+    text-decoration: none;
+    margin: 10px 2px;
+    background-color: lightgreen;
+    padding: 8px 8px;
+    border-radius: 8px;
+    text-align: center;
+    color: black;
+  }
+  .table tbody tr td .btn-warn {
+    width: 50%;
+    text-decoration: none;
+    margin: 10px 2px;
+    background-color: red;
+    padding: 8px 8px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+  }
+}
+
+@media (min-width: 250px) and (max-width: 414px) {
+  .container {
+    width: 100%;
+    margin: 0px auto;
+  }
+  .AddUserLayout{
+    width: 100%;
+    background-color: pink;
+    position: absolute;
+    top: 80px;
+    right: 0px;
+  }
+  .table thead {
+    display: none;
+  }
+  .table {
+    background-color: white;
+  }
+  .table tr {
+    background-color: lightgray;
+    margin-bottom: 15px;
+  }
+  .table, .table tbody, .table tr, .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    margin-bottom: 15px;
+  }
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .table tbody tr td .btn-primary {
+    width: 50%;
+    text-decoration: none;
+    margin: 10px 2px;
+    background-color: lightgreen;
+    padding: 8px 8px;
+    border-radius: 8px;
+    text-align: center;
+    color: black;
+  }
+  .table tbody tr td .btn-warn {
+    width: 50%;
+    text-decoration: none;
+    margin: 10px 2px;
+    background-color: red;
+    padding: 8px 8px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+  }
 }

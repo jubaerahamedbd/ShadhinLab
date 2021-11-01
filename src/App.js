@@ -18,7 +18,6 @@ function App() {
           <Route exact path="/user/:id" component={User} />
           <Route exact path="/user/edit/:id" component={EditUser} />
           <Route component={NotFound} />
-
         </Switch>
       </div>
     </BrowserRouter>

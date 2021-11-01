@@ -30,6 +30,9 @@ const AddUser = ({ closeModal,setUsers,tabValue }) => {
                     ? e.target.value.split("-")[0]
                     : e.target.value,
         });
+        if(e.target.user_type === 'admin'){
+            tabValue = 'admin'
+        }
     };
     const onSubmit = async e => {
         e.preventDefault()
@@ -51,8 +54,8 @@ const AddUser = ({ closeModal,setUsers,tabValue }) => {
             <div className="container">
                 <div className="col-md-8 updateUser">
                     <div className="top">
-                        <h2>Add User</h2>
-                        <Link className="btn btn-outline-dark col-md-6" id="addUser" onClick={() => closeModal(false)} to="/">Back To User List</Link>
+                        <h2 className="page-title">Add User</h2>
+                        <Link className="back-button" id="addUser" onClick={() => closeModal(false)} to="/">Back To User List</Link>
                     </div>
                     <hr />
                     <form onSubmit={e => onSubmit(e)}>
@@ -94,7 +97,7 @@ const AddUser = ({ closeModal,setUsers,tabValue }) => {
                             <div class="col-sm-9">
                                 <select
                                     onChange={(e) => {
-                                        OnInputChange(e);
+                                        //OnInputChange(e);
                                         setDistricts(
                                             City.getCitiesOfState("BD", e.target.value.split("-")[1])
                                         );
