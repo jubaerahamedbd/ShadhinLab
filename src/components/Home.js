@@ -9,7 +9,7 @@ const Home = () => {
 
     const [openModal, setOpenModal] = useState(false)
     useEffect(() => {
-        console.log(tabValue);
+        
         loadUsers()
     }, [tabValue])
 

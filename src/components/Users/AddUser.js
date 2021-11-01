@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Country, State, City } from "country-state-city";
-const AddUser = ({ closeModal,setUsers,tabValue }) => {
-    
+const AddUser = ({ closeModal, setUsers, tabValue }) => {
+
     const [user, setUser] = useState({
         first_name: "",
         last_name: "",
@@ -13,7 +13,7 @@ const AddUser = ({ closeModal,setUsers,tabValue }) => {
         division: "",
         district: ""
     })
-   
+
     const { first_name, last_name, user_type, division, district } = user
     const [divisions, setDivisions] = useState(
         State.getStatesOfCountry("BD").filter((dataItem) => {
@@ -30,9 +30,10 @@ const AddUser = ({ closeModal,setUsers,tabValue }) => {
                     ? e.target.value.split("-")[0]
                     : e.target.value,
         });
-        if(e.target.user_type === 'admin'){
+        if (e.target.user_type === 'admin') {
             tabValue = 'admin'
         }
+
     };
     const onSubmit = async e => {
         e.preventDefault()
@@ -47,8 +48,60 @@ const AddUser = ({ closeModal,setUsers,tabValue }) => {
         closeModal(false)
     }
     useEffect(() => {
-        console.log(State.getStatesOfCountry("BD"));
+
     }, []);
+    let area;
+    if (user_type === "employee") {
+        area = (<div>
+            <div class="form-group row my-2">
+                <label class="col-sm-3 col-form-label col-form-label-sm">
+                    Division
+                </label>
+                <div class="col-sm-9">
+                    <select
+                        onChange={(e) => {
+                            OnInputChange(e);
+                            setDistricts(
+                                City.getCitiesOfState("BD", e.target.value.split("-")[1])
+                            );
+                        }}
+                        class="form-control form-control-sm"
+                        name="division"
+                    >
+                        {divisions.map((dataItem) => {
+                            return (
+                                <option value={dataItem.name + "-" + dataItem.isoCode}>
+                                    {dataItem.name}
+                                </option>
+                            );
+                        })}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row my-2">
+                <label class="col-sm-3 col-form-label col-form-label-sm">
+                    District
+                </label>
+                <div class="col-sm-9">
+                    <select
+                        onChange={(e) => {
+                            OnInputChange(e);
+                        }}
+                        class="form-control form-control-sm"
+                        name="district"
+                    >
+                        {districts.map((dataItem) => {
+                            return <option value={dataItem.name}>{dataItem.name}</option>;
+                        })}
+                    </select>
+                </div>
+            </div>
+        </div>
+        )
+    } else {
+        area = ''
+    }
+
     return (
         <div className="AddUserLayout">
             <div className="container">
@@ -75,6 +128,7 @@ const AddUser = ({ closeModal,setUsers,tabValue }) => {
                                 />
                             </div>
                         </div>
+
                         <div class="form-group row my-2">
 
                             <label class="col-sm-3 col-form-label col-form-label-sm">Last Name</label>
@@ -90,50 +144,9 @@ const AddUser = ({ closeModal,setUsers,tabValue }) => {
                             </div>
 
                         </div>
-                        <div class="form-group row my-2">
-                            <label class="col-sm-3 col-form-label col-form-label-sm">
-                                Division
-                            </label>
-                            <div class="col-sm-9">
-                                <select
-                                    onChange={(e) => {
-                                        //OnInputChange(e);
-                                        setDistricts(
-                                            City.getCitiesOfState("BD", e.target.value.split("-")[1])
-                                        );
-                                    }}
-                                    class="form-control form-control-sm"
-                                    name="division"
-                                >
-                                    {divisions.map((dataItem) => {
-                                        return (
-                                            <option value={dataItem.name + "-" + dataItem.isoCode}>
-                                                {dataItem.name}
-                                            </option>
-                                        );
-                                    })}
-                                </select>
-                            </div>
-                        </div>
 
-                        <div class="form-group row my-2">
-                            <label class="col-sm-3 col-form-label col-form-label-sm">
-                                District
-                            </label>
-                            <div class="col-sm-9">
-                                <select
-                                    onChange={(e) => {
-                                        OnInputChange(e);
-                                    }}
-                                    class="form-control form-control-sm"
-                                    name="district"
-                                >
-                                    {districts.map((dataItem) => {
-                                        return <option value={dataItem.name}>{dataItem.name}</option>;
-                                    })}
-                                </select>
-                            </div>
-                        </div>
+                        {area}
+
                         <div class="form-group row my-2">
                             <label class="col-sm-3 col-form-label col-form-label-sm"    >User Type</label>
                             <div class="col-sm-9">
