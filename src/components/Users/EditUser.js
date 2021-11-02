@@ -211,8 +211,8 @@ const EditUser = () => {
                                                         class="form-control form-control-sm"
                                                         name="user_type"
                                                     >
-                                                        <option value={"admin"}>admin</option>
-                                                        <option value={"employee"}>employee</option>
+                                                        <option value={values.user_type}>{values.user_type}</option>
+                                                        
                                                     </select>
                                                     {errors.user_type && touched.user_type && (
                                                         <span className="error">{errors.user_type}</span>

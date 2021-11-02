@@ -226,6 +226,9 @@ button.btn.btn-primary.updatebtn {
     top: 80px;
     right: 10%;
   }
+  td {
+    height: 41px;
+  }
   .table thead {
     display: none;
   }
@@ -292,6 +295,9 @@ button.btn.btn-primary.updatebtn {
   }
   .table thead {
     display: none;
+  }
+  td {
+    height: 41px;
   }
   .table {
     background-color: white;
